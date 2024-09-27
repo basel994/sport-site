@@ -3,8 +3,17 @@ import styles from "./page.module.css";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import PlaceHolder from "@/components/News/PlaceHolder";
 import News from "@/components/News/News";
+import { sql } from "@vercel/postgres";
 
-export default function Home() {
+export default async function Home() {
+  await sql`  
+  CREATE TABLE IF NOT EXISTS posts (  
+    id SERIAL PRIMARY KEY,  
+    title VARCHAR(255) NOT NULL,  
+    content TEXT NOT NULL,  
+    likes INT DEFAULT 0  
+  );  
+`; 
   return (
     <>
       <PageHeader props={{name:"Latest News",bg:"rgb(6, 58, 65)", color: "rgb(255, 255, 255"}} />
