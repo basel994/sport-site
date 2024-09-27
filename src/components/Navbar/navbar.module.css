@@ -1,0 +1,96 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 5rem;
+    border-bottom: 0.1rem solid darksalmon;
+    background-color: rgb(108, 212, 226);
+    padding: 0 0.5rem;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.linksContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.links a {
+    padding: 1rem;
+}
+.active {
+    border-bottom: 0.2rem solid rgb(5, 53, 50);
+}
+.collapse {
+    margin-left: auto;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 1.6rem;
+    cursor: pointer;
+}
+.collapse span {
+    width: 2rem;
+    height: 0.2rem;
+    background-color: brown;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+.collapse span::after, .collapse span::before {
+    position: absolute;
+    content: "";
+    background-color: brown;
+    height: 100%;
+    width: 100%;
+    left: 0;
+}
+.collapse span::after {
+    top: 0.5rem;
+    transition: transform 0.5s linear;
+}
+.collapse span::before {
+    top: -0.5rem;
+    transition: transform 0.5s linear;
+}
+
+@media screen and (max-width:767px) {
+    .links {
+        background-color: rgb(108, 212, 226);
+        position: absolute;
+        flex-direction: column;
+        gap: 1rem;
+        top: 5rem;
+        right: 0;
+        width: 0%;
+        transition: width 0.5s ease-in-out;
+        overflow: hidden;
+    }
+    .collapse {
+        display: flex;
+    }
+    .collapseLinks {
+        width: 100%;
+    }
+    .closeCollapse span {
+        transform: translateX(5rem);
+        transition: transform 0.5s linear;
+    }
+    .closeCollapse span::after {
+        transform: translateX(-5rem) rotate(45deg);
+        transition: transform 0.5s linear;
+        top: 0;
+    }
+    .closeCollapse span::before {
+        transform: translateX(-5rem) rotate(-45deg);
+        transition: transform 0.5s linear;
+        top: 0;
+    }
+}
