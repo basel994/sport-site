@@ -7,11 +7,12 @@ import { sql } from "@vercel/postgres";
 
 export default async function Home() {
   await sql`  
-  CREATE TABLE IF NOT EXISTS posts (  
+  CREATE TABLE IF NOT EXISTS sport_news (  
     id SERIAL PRIMARY KEY,  
     title VARCHAR(255) NOT NULL,  
     content TEXT NOT NULL,  
-    likes INT DEFAULT 0  
+    image VARCHAR(255),
+    date VARCHAR(255) 
   );  
 `; 
   return (
